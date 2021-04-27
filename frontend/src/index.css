@@ -11,3 +11,135 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav{
+  display: flex;
+  margin-left:34rem;
+}
+
+.nav_style {
+  color: rgb(241, 234, 234);
+  text-decoration: none;
+  font-size:35px;
+}
+
+.header {
+  background-color: rgba(34, 125, 211, 0.884);
+  padding: 16px;
+}
+
+
+.nav_title {
+  margin-left: 40px;
+  margin-right:300px;
+}
+
+
+
+.mainpage_style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8em;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.main_item {
+  margin: 0 1.5rem 0 1.5rem;
+ margin-top:50px;
+  border:10px solid lightgrey;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 30px;
+}
+
+.main_item p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color:rgb(97, 92, 92)
+}
+
+.main_item img {
+  margin:0 10px;
+  margin-top: 5px;
+  width: 250px;
+  height: 200px;
+  border-radius:15px;
+}
+
+.cartdesign {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid  rgba(214, 209, 209, 0.486);
+}
+ .main_heading {
+  text-align: center;
+  margin:10px 0;
+}
+
+.description {
+  color: rgb(51, 51, 51);
+}
+
+.item_tile {
+  font-size: 30px;
+  font-weight:700;
+  margin-bottom: 4px;
+}
+
+.priceitem {
+  font-size: 22px;
+  font-weight:500;
+  margin-bottom: 4px;
+}
+
+
+.item_card {
+  padding-left: 350px;
+}
+
+.item_image {
+  margin-right: 20%;
+  padding: 1rem;
+}
+
+.item_image img {
+  width: 200px;
+  height: 150px;
+  border-radius: 15px;
+}
+.clearbutton {
+  text-align: center;
+  padding: 30px;
+}
+
+.cartblank {
+  text-align: center;
+  font-size: 30px;
+  margin: 55px;
+  font-weight: 600;
+}
+
+.button_styling {
+  font-size: 19px;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(34, 125, 211, 0.884);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 14px;
+}
+
+
+

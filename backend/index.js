@@ -1,10 +1,11 @@
-
 const fs = require('fs');
 const mongoose = require('mongoose');
 const express = require('express');
+
 const app = express();
 
 app.use(express.json());
+
 mongoose.connect('mongodb://localhost:27017/fooditemcontainer', { 
     useNewUrlParser: true,
      useUnifiedTopology: true, 
@@ -17,7 +18,7 @@ const Schema = new mongoose.Schema({
         type: String,
        
     },
-    iitemimage: {
+    itemimage: {
         type: String,
       
     },
@@ -28,11 +29,11 @@ const Schema = new mongoose.Schema({
     itemdescription: {
         type: String,
     }
-}, { versionKey: false });
+});
 
 var fooditemslist = mongoose.model('fooditemslist', Schema);
 
-app.post('/cartitems', (req, res) => {
+app.post('/adcartitems', (req, res) => {
     var addingfooitem = new fooditemslist({
         itemname: req.body.name,
         itemimage: req.body.image,
@@ -41,42 +42,42 @@ app.post('/cartitems', (req, res) => {
     });
 
     addingfooitem.save().then((docs) => {
-        console.log("output",docs)
-    }, (error) => {
-        console.log(error)
-    })
     res.json({ result: 'Success' })
+    console.log("output",docs)
+    })
 });
 
-app.get('/itemcart', (req, res) => {
+app.get('/getitemcart', (req, res) => {
     fooditemslist.find({}, (err, data) => {
         res.json(data)
     })
 })
 
 app.get('/allfooditemslist', (req, res) => {
-    fs.readFile('data.json', "UTF-8", (err, data) => {
+    fs.readFile('fooddata.json', "UTF-8", (err, data) => {
        var result = JSON.parse(data);
-        res.send(result);
+        res.json({results:result});
     })
 })
 
 app.delete('/removingcartitem', function (req, res) {
-
     fooditemslist.deleteOne({ _id: req.body._id }).
     then((result) => {
-                 res.json(result);
-    }, (err) => console.log(err));
+      res.json(result);
+      console.log(result)
+    },
+     (err) => console.log(err));
 });
 
 app.delete('/clearingallcart', function (req, res) {
-
     fooditemslist.deleteMany().
     then((response) => {
-        res.json(response);
-    }, (err) => console.log(err));
+    res.json(response);
+    console.log(response)
+    },
+     (err) => console.log(err));
 });
 
-app.listen(9000, () => {
-    console.log('Server is running on port 9000');
+app.listen(3001, () => {
+    console.log('server is running at port 3001');
 });

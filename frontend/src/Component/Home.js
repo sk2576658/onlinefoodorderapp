@@ -3,18 +3,20 @@ import { NavLink } from 'react-router-dom'
 
 const Home = (props) => {
     return (
-        <div className="homecontainer">
-            {props.fooditem.map((singleelement, index) => {
-                return index === 0 ?
-                    <NavLink className="parentlink" to='/pizza'>
-                        <img className="parentimage" src={singleelement.image} alt=''/>
-                        <p>{singleelement.name}</p>
-                        </NavLink>
-                    :
-                    <NavLink className="parentlink" to='/burger'>
-                        <img className="parentimage" src={singleelement.image} alt=''/>
-                        <p>{singleelement.name}</p>
-                        </NavLink>
+        <div className="mainpage_style">
+            {props.items.map((currentvalue, index) => {
+                if(index === 0 ){
+                    return  <NavLink className="main_item" to='/pizza'>
+                    <img  src={currentvalue.image} alt=''/>
+                    <p>{currentvalue.name}</p>
+                    </NavLink>
+                }
+                else{
+                    return <NavLink className="main_item" to='/burger'>
+                    <img  src={currentvalue.image} alt=''/>
+                    <p>{currentvalue.name}</p>
+                    </NavLink>
+                }       
             }
             )}
         </div>
